@@ -11,3 +11,17 @@ location / {
            proxy_set_header   Connection "upgrade";
            proxy_read_timeout 86400;
         }
+
+
+define('FORCE_SSL_ADMIN', true);
+
+if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false){
+    $_SERVER['HTTPS'] = 'on';
+    $_SERVER['SERVER_PORT'] = 443;
+}
+if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+    $_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
+
+define('WP_HOME','https://www.aispider.cc/');
+define('WP_SITEURL','https://www.aispider.cc/');
