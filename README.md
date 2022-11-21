@@ -1,4 +1,4 @@
-# Docker Nginx
+# Nginx Docker
 
 ## Sample compose file entry
 ```
